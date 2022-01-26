@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-const LoginForm = ({ handelSubmite }) => {
+const LoginForm = ({ handelSubmit }) => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   const loggingIn = (event) => {
     event.preventDefault();
-    handelSubmite({
+    handelSubmit({
       username,
       password,
     });
@@ -38,5 +39,11 @@ const LoginForm = ({ handelSubmite }) => {
       </form>
     </div>
   );
+};
+
+LoginForm.prototype = {
+  handelSubmit: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
 };
 export default LoginForm;
