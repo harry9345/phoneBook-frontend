@@ -21,7 +21,7 @@ const LoginForm = ({ handelSubmit }) => {
           User name :
           <input
             type="text"
-            name="Username"
+            id="username"
             value={username}
             onChange={(event) => setUserName(event.target.value)}
           />
@@ -30,12 +30,14 @@ const LoginForm = ({ handelSubmit }) => {
           Password :
           <input
             type="password"
-            name="Password"
+            id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">login</button>
+        <button type="submit" id="login-button">
+          login
+        </button>
       </form>
     </div>
   );
