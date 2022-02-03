@@ -1,5 +1,5 @@
-import axios from "axios";
-const baseUrl = "/app/notes";
+import axios from 'axios';
+const baseUrl = '/app/notes';
 
 let token = null;
 

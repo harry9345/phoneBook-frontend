@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const LoginForm = ({ handelSubmit }) => {
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
 
   const loggingIn = (event) => {
     event.preventDefault();
@@ -20,8 +20,8 @@ const LoginForm = ({ handelSubmit }) => {
         <div>
           User name :
           <input
-            type="text"
-            id="username"
+            type='text'
+            id='username'
             value={username}
             onChange={(event) => setUserName(event.target.value)}
           />
@@ -29,13 +29,13 @@ const LoginForm = ({ handelSubmit }) => {
         <div>
           Password :
           <input
-            type="password"
-            id="password"
+            type='password'
+            id='password'
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit" id="login-button">
+        <button type='submit' id='login-button'>
           login
         </button>
       </form>
