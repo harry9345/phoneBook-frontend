@@ -1,10 +1,10 @@
-import "./note.css";
+import './note.css';
 
 const Note = ({ note, toggelingImportant }) => {
-  const label = note.important ? "make not important" : "make important";
+  const label = note.important ? 'make not important' : 'make important';
 
   return (
-    <li className="note">
+    <li className='note'>
       {note.content}
       <button onClick={toggelingImportant}>{label}</button>
     </li>

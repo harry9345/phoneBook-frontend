@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
-import Note from "./components/Note/Note";
-// import Notification from "./components/Notification/Notification";
-import LoginForm from "./components/LoginForm/LoginForm.js";
-import NoteForm from "./components/Note/NoteForm/NoteForm.js";
-import Togglable from "./components/Toggleable/Toggleable.js";
-import Footer from "./components/Footer/Footer";
-import loginService from "./services/login";
-import noteService from "./services/note";
+import React, { useState, useEffect, useRef } from 'react';
+import Note from './components/Note/Note';
+// import Notification from './components/Notification/Notification';
+import LoginForm from './components/LoginForm/LoginForm.js';
+import NoteForm from './components/Note/NoteForm/NoteForm.js';
+import Togglable from './components/Toggleable/Toggleable.js';
+import Footer from './components/Footer/Footer';
+import loginService from './services/login';
+import noteService from './services/note';
 
 const App = (props) => {
   const [notes, setNotes] = useState(props.notes);
   const [showAll, setShowAll] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("someERROR HAPPEND");
+  const [errorMessage, setErrorMessage] = useState('someERROR HAPPEND');
 
   const noteFormRef = useRef();
 
@@ -24,7 +24,7 @@ const App = (props) => {
   }, []);
 
   useEffect(() => {
-    const logInInfo = window.localStorage.getItem("logInInfo");
+    const logInInfo = window.localStorage.getItem('logInInfo');
     if (logInInfo) {
       const user = JSON.parse(logInInfo);
       setUser(user);
@@ -66,11 +66,11 @@ const App = (props) => {
     try {
       const user = await loginService.login({ username, password });
 
-      window.localStorage.setItem("logInInfo", JSON.stringify(user));
+      window.localStorage.setItem('logInInfo', JSON.stringify(user));
       noteService.setToken(user.token);
       setUser(user);
     } catch (expectation) {
-      setErrorMessage("wrong credential");
+      setErrorMessage('wrong credential');
       setTimeout(() => {
         setErrorMessage(null);
       }, 5000);
@@ -79,17 +79,17 @@ const App = (props) => {
 
   const logOut = () => {
     setUser(null);
-    window.localStorage.removeItem("logInInfo");
+    window.localStorage.removeItem('logInInfo');
   };
 
   const loginForm = () => (
-    <Togglable buttonLabel="log In">
+    <Togglable buttonLabel='log In'>
       <LoginForm handelSubmit={handleLogin} />
     </Togglable>
   );
 
   const noteForm = () => (
-    <Togglable buttonLabel="New Note" ref={noteFormRef}>
+    <Togglable buttonLabel='New Note' ref={noteFormRef}>
       <NoteForm createNote={addNote} />
     </Togglable>
   );
@@ -109,7 +109,7 @@ const App = (props) => {
       <h2>Notes :</h2>
       <div>
         <button onClick={() => setShowAll(!showAll)}>
-          show {showAll ? "important" : "all"}
+          show {showAll ? 'important' : 'all'}
         </button>
       </div>
       <ul>
