@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+
 import Note from './components/Note/Note';
 // import Notification from './components/Notification/Notification';
 import LoginForm from './components/LoginForm/LoginForm.js';
@@ -63,8 +64,7 @@ const App = (props) => {
 
   const noteToShow = showAll ? notes : notes.filter((note) => note.important);
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
+  const handleLogin = async ({ username, password }) => {
     try {
       const user = await loginService.login({
         username,
